@@ -1,5 +1,39 @@
 ---
 layout: default
 ---
-    <h1>Planets of the Universe </h1>
-    <p>More planets in the universe</p>
+<h1>Planets of the Universe </h1>
+<p>A planet is an astronomical object orbiting a star or stellar...</p>
+
+<h2>Types of Planets</h2>
+
+<ol>
+  {% for planet in site.data.planet-types %}
+    <li>
+      <a href="#">{{planet.title}}</a>
+      <p>{{planet.content | markdownify }}</p>
+    </li>
+  {% endfor %}
+</ol>
+
+
+<h2>Recently Discovered Planets</h2>
+<ul>
+  {% for post in site.categories.recently-discovered limit:2 %}
+    <li>
+      <a href="">{{post.title}}</a>
+      <p>{{post.meta}}</p>
+    </li>
+  {% endfor %}
+</ul>
+
+
+
+<!-- the old way of looping through planets, using categories
+<ol>
+  {% for planet in site.categories.planet-type %}
+    <li>
+      <a href="#">{{planet.title}}</a>
+      <p>{{planet.content}}</p>
+    </li>
+  {% endfor %}
+</ol> -->
